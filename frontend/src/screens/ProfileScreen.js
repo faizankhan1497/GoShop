@@ -44,7 +44,6 @@ const ProfileScreen = ({ location, history }) => {
       dispatch(updateUserProfile({ id: user, name, email, password }))
     }
   }
-
   return (
     <Row>
       <Col md={3}>
@@ -56,7 +55,7 @@ const ProfileScreen = ({ location, history }) => {
         {loading && <Loader />}
         <Form onSubmit={submitHandler}>
           <Form.Group controlId='name'>
-            <Form.Label>Name </Form.Label>
+            <Form.Label>Name</Form.Label>
             <Form.Control
               type='name'
               placeholder='Enter name'
