@@ -7,7 +7,7 @@ const orderSchema = mongoose.Schema(
       required: true,
       ref: 'User',
     },
-    orderItem: [
+    orderItems: [
       {
         name: { type: String, required: true },
         qty: { type: Number, required: true },
@@ -28,6 +28,8 @@ const orderSchema = mongoose.Schema(
     },
     PaymentMethod: {
       type: String,
+      required: true,
+      default: 'Paypal',
     },
     PaymentResult: {
       id: { type: String },
