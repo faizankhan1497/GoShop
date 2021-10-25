@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { PayPalButton } from 'react-paypal-button-v2'
 import { Link } from 'react-router-dom'
@@ -36,7 +36,7 @@ const OrderScreen = ({ match, history }) => {
   const { userInfo } = userLogin
 
   if (!loading) {
-    //Calculate prices
+    //   Calculate prices
     const addDecimals = (num) => {
       return (Math.round(num * 100) / 100).toFixed(2)
     }
@@ -50,6 +50,7 @@ const OrderScreen = ({ match, history }) => {
     if (!userInfo) {
       history.push('/login')
     }
+
     const addPayPalScript = async () => {
       const { data: clientId } = await axios.get('/api/config/paypal')
       const script = document.createElement('script')
@@ -79,6 +80,7 @@ const OrderScreen = ({ match, history }) => {
     console.log(paymentResult)
     dispatch(payOrder(orderId, paymentResult))
   }
+
   const deliverHandler = () => {
     dispatch(deliverOrder(order))
   }
@@ -99,9 +101,8 @@ const OrderScreen = ({ match, history }) => {
                 <strong>Name: </strong> {order.user.name}
               </p>
               <p>
-                {' '}
-                <strong>Email: </strong>
-                <a href={`mailto:${order.user.email}`}>{order.user.email} </a>
+                <strong>Email: </strong>{' '}
+                <a href={`mailto:${order.user.email}`}>{order.user.email}</a>
               </p>
               <p>
                 <strong>Address:</strong>
@@ -111,7 +112,7 @@ const OrderScreen = ({ match, history }) => {
               </p>
               {order.isDelivered ? (
                 <Message variant='success'>
-                  Delivered on{order.deliveredAt}
+                  Delivered on {order.deliveredAt}
                 </Message>
               ) : (
                 <Message variant='danger'>Not Delivered</Message>
@@ -125,7 +126,7 @@ const OrderScreen = ({ match, history }) => {
                 {order.paymentMethod}
               </p>
               {order.isPaid ? (
-                <Message variant='success'>Paid on{order.paidAt}</Message>
+                <Message variant='success'>Paid on {order.paidAt}</Message>
               ) : (
                 <Message variant='danger'>Not Paid</Message>
               )}
@@ -134,7 +135,7 @@ const OrderScreen = ({ match, history }) => {
             <ListGroup.Item>
               <h2>Order Items</h2>
               {order.orderItems.length === 0 ? (
-                <Message> Order is empty</Message>
+                <Message>Order is empty</Message>
               ) : (
                 <ListGroup variant='flush'>
                   {order.orderItems.map((item, index) => (
@@ -208,7 +209,6 @@ const OrderScreen = ({ match, history }) => {
                 </ListGroup.Item>
               )}
               {loadingDeliver && <Loader />}
-
               {userInfo &&
                 userInfo.isAdmin &&
                 order.isPaid &&
