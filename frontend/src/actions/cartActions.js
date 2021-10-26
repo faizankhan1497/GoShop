@@ -4,7 +4,6 @@ import {
   CART_REMOVE_ITEM,
   CART_SAVE_SHIPPING_ADDRESS,
   CART_SAVE_PAYMENT_METHOD,
-  CART_CLEAR_ITEMS,
 } from '../constants/cartConstants'
 
 export const addToCart = (id, qty) => async (dispatch, getState) => {
@@ -21,6 +20,7 @@ export const addToCart = (id, qty) => async (dispatch, getState) => {
       qty,
     },
   })
+
   localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))
 }
 
@@ -29,6 +29,7 @@ export const removeFromCart = (id) => (dispatch, getState) => {
     type: CART_REMOVE_ITEM,
     payload: id,
   })
+
   localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))
 }
 
@@ -37,6 +38,7 @@ export const saveShippingAddress = (data) => (dispatch) => {
     type: CART_SAVE_SHIPPING_ADDRESS,
     payload: data,
   })
+
   localStorage.setItem('shippingAddress', JSON.stringify(data))
 }
 
@@ -45,13 +47,6 @@ export const savePaymentMethod = (data) => (dispatch) => {
     type: CART_SAVE_PAYMENT_METHOD,
     payload: data,
   })
-  localStorage.setItem('paymentMethod', JSON.stringify(data))
-}
 
-export const cartClear = (data) => (dispatch) => {
-  dispatch({
-    type: CART_CLEAR_ITEMS,
-    payload: data,
-  })
-  localStorage.setItem('cartItems', JSON.stringify(data))
+  localStorage.setItem('paymentMethod', JSON.stringify(data))
 }
