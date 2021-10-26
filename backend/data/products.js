@@ -1,6 +1,6 @@
 const products = [
   {
-    name: 'Airpods Wireless Bluetooth Headphones',
+    name: 'Apple AirPods Max',
     image: '/images/airpods.png',
     description:
       'Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working',
@@ -48,11 +48,11 @@ const products = [
     numReviews: 12,
   },
   {
-    name: 'Logitech G-Series Gaming Mouse',
+    name: 'Raycon Headphones',
     image: '/images/Headphones.png',
     description:
-      'Get a better handle on your games with this Logitech LIGHTSYNC gaming mouse. The six programmable buttons allow customization for a smooth playing experience',
-    brand: 'Logitech',
+      'With booming sound and superior noise cancellation, you can block out all distractions and stay focused on your mission.',
+    brand: 'Raycon',
     category: 'Electronics',
     price: 49.99,
     countInStock: 7,
@@ -60,10 +60,10 @@ const products = [
     numReviews: 10,
   },
   {
-    name: 'Amazon Echo Dot 3rd Generation',
+    name: ' JB Hi-Fi Amazon Echo Dot with (Alexa Gen 4) [Twilight Blue]',
     image: '/images/Amazon Speaker.jpg',
     description:
-      'Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space',
+      'Meet  JB Hi-Fi Amazon Echo Dot with [Twilight Blue] Color- Our most popular smart speaker. It is our most compact smart speaker that fits perfectly into small space..',
     brand: 'Amazon',
     category: 'Electronics',
     price: 29.99,
